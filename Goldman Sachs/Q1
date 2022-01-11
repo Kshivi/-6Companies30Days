@@ -1,1 +1,31 @@
+#print all anagram together
 
+class Solution{
+  public:
+    vector<vector<string> > Anagrams(vector<string>& string_list) {
+        int n=string_list.size();
+        map<string,vector<string>>m;
+        for(int i=0;i<n;i++){
+            string s=string_list[i]; //sort the array make it key cat sort->act
+            sort(s.begin(),s.end());
+            m[s].push_back(string_list[i]); //sort key ->original
+    
+        }
+        //print
+        vector<vector<string>>ans(m.size()); //2d vector
+        int idx=0;
+        for(auto x:m){                      //x.second
+            auto v=x.second;                //act={cat,tac}
+            
+            for(int i=0;i<v.size();i++){
+                ans[idx].push_back(v[i]);
+            }
+            idx++;
+            
+        }
+        return ans;
+    }
+};
+
+time complexity= n*mlogm
+sc=o(n+m)
