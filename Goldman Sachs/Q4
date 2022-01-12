@@ -1,0 +1,20 @@
+# Run length Encoding
+
+string encode(string src)
+{     
+    string p="";
+    int count=1;
+    for(int i=0;i<src.size();i++){
+        if(src[i]==src[i+1])
+        {
+            count++;
+        }else{
+        p=p+src[i]+to_string(count); //change count int to string for adding in string
+        count=1;
+        }
+    }
+    return p;
+}     
+ 
+ //time comp=o(n)
+ //space comp=o(1)
