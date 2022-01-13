@@ -1,0 +1,17 @@
+#find the kids which get damage toy or Distributing M items in a circle of size N starting from K-th position
+
+class Solution {
+  public:
+    int findPosition(int N , int M , int K) {
+        if(N==1)
+         return 1;
+         
+        int ans=M%N+K-1;  //8%5+2-1=9
+        if(ans==N)
+         return ans;
+        else
+         return ans%N;
+    }
+};
+
+tc= o(1)
