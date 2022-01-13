@@ -1,0 +1,26 @@
+#Total Decoding Messages
+
+int CountWays(string str){
+		    int n=str.size();
+		    int mod=1e9+7;
+		     int count[n+1];//table store subproblems
+		     count[0]=1;
+		     count[1]=1;
+		     //base case= starting with zero not allowed
+		     if(str[0]=='0') return 0;
+		     for(int i=2;i<=n;i++){
+		         count[i]=0;
+		         //last digit not zero then last digit must add to no of words
+		         if(str[i-1]>'0')
+		          count[i]=count[i-1];
+		          
+		         //if(second last digit is smaller than 2 and last digit smaller than 7 then last 
+		         //two digit form a valid character)
+		         if(str[i-2]=='1'||(str[i-2]=='2'&& str[i-1]<'7'))
+		                count[i]=(count[i]+count[i-2])%mod;
+		     }
+		     return count[n];
+		}
+    
+    dp=o(N)
+    
