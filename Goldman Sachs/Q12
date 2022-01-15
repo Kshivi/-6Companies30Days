@@ -1,0 +1,12 @@
+# square in N*N chessboard
+
+class Solution {
+  public:
+    long long squaresInChessBoard(long long N) {
+        long long p=0;
+        for(long long i=1;i<=N;i++){
+            p+=(i*i);
+        }
+        return p;
+    }
+};
