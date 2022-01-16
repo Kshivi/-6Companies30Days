@@ -1,0 +1,31 @@
+#Longest Mountain 
+
+class Solution {
+public:
+    int longestMountain(vector<int>& arr) {
+        int n=arr.size();
+        if(n<3)return 0;
+        int maxl=0;
+        int i=0;
+        int up=0;
+        int down=0;
+        while(i<n){
+            up=0,down=0;
+            while(i<n-1 && arr[i]<arr[i+1]){
+                i++;
+                up++;
+            }
+            //check if we go down and also check up is also value
+            while(i<n-1 && arr[i]>arr[i+1] && up){
+                i++;
+                down++;
+            }
+            if(up&&down){
+                maxl=max(maxl,up+down+1);
+            }else{
+                i++;
+            }
+        }
+        return maxl;
+    }
+};
